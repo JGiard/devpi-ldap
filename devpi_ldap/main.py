@@ -16,7 +16,7 @@ def devpiserver_auth_user(userdict, username, password):
     conn.search(ldap['base'], ldap['search'].format(username=username))
     if len(conn.entries) == 0:
         return dict(status='unknown')
-    dn = conn.entries[0]._dn
+    dn = conn.entries[0].entry_dn
     try:
         Connection(ldap['server'], auto_bind=True, user=dn, password=password)
     except LDAPException:
