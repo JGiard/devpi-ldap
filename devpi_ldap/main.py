@@ -2,7 +2,7 @@ import json
 from argparse import Action
 
 from ldap3 import Connection
-from ldap3 import LDAPException
+from ldap3.core.exceptions import LDAPException
 
 ldap = None
 
